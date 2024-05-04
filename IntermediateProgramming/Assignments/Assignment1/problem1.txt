@@ -1,0 +1,13 @@
+//START OF PROGRAM
+
+PS C:\Users\leduc\OneDrive\Documents\SchoolWork\Semester2\CSE1320\assignment-1-flannelboy>  & 'c:\Users\leduc\.vscode\extensions\ms-vscode.cpptools-1.13.9-win32-x64\debugAdapters\bin\WindowsDebugLauncher.exe' '--stdin=Microsoft-MIEngine-In-swyhb1pz.hhx' '--stdout=Microsoft-MIEngine-Out-maol12u2.cfb' '--stderr=Microsoft-MIEngine-Error-yekzipz4.su1' '--pid=Microsoft-MIEngine-Pid-m1ceao4n.vpr' '--dbgExe=C:\msys64\mingw64\bin\gdb.exe' '--interpreter=mi'
+10
+Case 1
+PS C:\Users\leduc\OneDrive\Documents\SchoolWork\Semester2\CSE1320\assignment-1-flannelboy>  & 'c:\Users\leduc\.vscode\extensions\ms-vscode.cpptools-1.13.9-win32-x64\debugAdapters\bin\WindowsDebugLauncher.exe' '--stdin=Microsoft-MIEngine-In-y3gsfqdy.fya' '--stdout=Microsoft-MIEngine-Out-zy3hebyx.ktm' '--stderr=Microsoft-MIEngine-Error-bjzh5xd1.jas' '--pid=Microsoft-MIEngine-Pid-qhphf34s.v5t' '--dbgExe=C:\msys64\mingw64\bin\gdb.exe' '--interpreter=mi'
+20
+Case 2
+PS C:\Users\leduc\OneDrive\Documents\SchoolWork\Semester2\CSE1320\assignment-1-flannelboy>  & 'c:\Users\leduc\.vscode\extensions\ms-vscode.cpptools-1.13.9-win32-x64\debugAdapters\bin\WindowsDebugLauncher.exe' '--stdin=Microsoft-MIEngine-In-k1wughwk.dik' '--stdout=Microsoft-MIEngine-Out-fftrnft2.1pf' '--stderr=Microsoft-MIEngine-Error-5nvuizvd.2cd' '--pid=Microsoft-MIEngine-Pid-sbwhxz4s.5da' '--dbgExe=C:\msys64\mingw64\bin\gdb.exe' '--interpreter=mi' 
+16
+Case 3
+
+//END OF PROGRAM

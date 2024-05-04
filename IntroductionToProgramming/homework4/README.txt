@@ -1,0 +1,1 @@
+problem 4 has 2 versions, one version has a loop that allows you to test all 5 cases in one run instead of running the program 5 times

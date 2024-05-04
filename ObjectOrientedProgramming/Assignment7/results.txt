@@ -1,0 +1,474 @@
+FULL CREDIT
+===========
+
+QUESTION 1: Why is String[] args changed to a LinkedList in WordSearch.main? (Hint: Examine the WordSearch constructor!)
+>>The reason for changing String[] args to a LinkedList<String> in the WordSearch constructor is to enable easier removal of elements from the command-line arguments list as they are processed.
+>>In the constructor, the code is checking for specific command-line options (like -h and -v) and the number of threads and puzzles. As these options and values are processed, they are removed from the list of arguments to avoid processing them again.
+>>In a String[] array, removing elements is not straightforward, and you would need to create a new array or use additional data structures to manage the list of arguments after processing. By using a LinkedList<String>, you can efficiently remove elements from the beginning of the list using args.remove(0) without the need to shift elements.
+
+
+QUESTION 2: How many puzzles did your machine need to solve with 1 thread to run for between 30 and 45 seconds: 
+>> My machine need 1500 puzzles to solve with 1 thread to run for 30-40 seconds (33.905 seconds)
+
+
+
+QUESTION 3: Provide the output of 
+
+    time java WordSearch n 1000 ../puzzle??.txt 
+
+where n is 1 to 16 and 1000 is the number of puzzles specified in Question 2. NOTE: You can run all of these with a single bash command if you like (again, replace 1000 with your number of puzzles from Question 2):
+
+for i in {1..16} ; do time java WordSearch $i 1000 ../puzzle??.txt ; done
+
+Example Timing:
+
+ for i in {1..16} ; do time java WordSearch $i 1000 ../puzzle??.txt ; done
+1000 puzzles
+Thread 0: 0-999
+
+real	0m31.872s
+user	0m32.475s
+sys	0m0.224s
+
+1000 puzzles
+Thread 1: 500-999
+Thread 0: 0-499
+
+real	0m14.376s
+user	0m29.078s
+sys	0m0.229s
+
+...and so on
+
+
+
+YOUR Timing:
+
+1..16 | ForEach-Object {
+>>     Measure-Command { java WordSearch $_ 1000 ../puzzle??.txt }
+>> }
+
+1000 puzzles with 1 threads
+Thread 0: 0-999
+
+
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 23
+Milliseconds      : 193
+Ticks             : 231933015
+TotalDays         : 0.000268440989583333
+TotalHours        : 0.00644258375
+TotalMinutes      : 0.386555025
+TotalSeconds      : 23.1933015
+TotalMilliseconds : 23193.3015
+
+
+1000 puzzles with 2 threads
+Thread 1: 500-999
+Thread 0: 0-499
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 10
+Milliseconds      : 455
+Ticks             : 104550844
+TotalDays         : 0.000121007921296296
+TotalHours        : 0.00290419011111111
+TotalMinutes      : 0.174251406666667
+TotalSeconds      : 10.4550844
+TotalMilliseconds : 10455.0844
+
+
+1000 puzzles with 3 threads
+Thread 2: 666-998
+Thread 1: 333-665
+Thread 0: 0-333
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 7
+Milliseconds      : 106
+Ticks             : 71063215
+TotalDays         : 8.22490914351852E-05
+TotalHours        : 0.00197397819444444
+TotalMinutes      : 0.118438691666667
+TotalSeconds      : 7.1063215
+TotalMilliseconds : 7106.3215
+
+
+1000 puzzles with 4 threads
+Thread 3: 750-999
+Thread 2: 500-749
+Thread 1: 250-499
+Thread 0: 0-249
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 5
+Milliseconds      : 936
+Ticks             : 59360528
+TotalDays         : 6.87043148148148E-05
+TotalHours        : 0.00164890355555556
+TotalMinutes      : 0.0989342133333333
+TotalSeconds      : 5.9360528
+TotalMilliseconds : 5936.0528
+
+
+1000 puzzles with 5 threads
+Thread 0: 0-199
+Thread 1: 200-399
+Thread 2: 400-599
+Thread 4: 800-999
+Thread 3: 600-799
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 5
+Milliseconds      : 76
+Ticks             : 50764518
+TotalDays         : 5.87552291666667E-05
+TotalHours        : 0.0014101255
+TotalMinutes      : 0.08460753
+TotalSeconds      : 5.0764518
+TotalMilliseconds : 5076.4518
+
+
+1000 puzzles with 6 threads
+Thread 2: 332-498
+Thread 1: 166-332
+Thread 5: 830-995
+Thread 4: 664-829
+Thread 0: 0-166
+Thread 3: 498-664
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 5
+Milliseconds      : 10
+Ticks             : 50100833
+TotalDays         : 5.79870752314815E-05
+TotalHours        : 0.00139168980555556
+TotalMinutes      : 0.0835013883333333
+TotalSeconds      : 5.0100833
+TotalMilliseconds : 5010.0833
+
+
+1000 puzzles with 7 threads
+Thread 2: 284-426
+Thread 0: 0-142
+Thread 5: 710-852
+Thread 6: 852-993
+Thread 4: 568-710
+Thread 3: 426-568
+Thread 1: 142-284
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 5
+Milliseconds      : 46
+Ticks             : 50463540
+TotalDays         : 5.8406875E-05
+TotalHours        : 0.001401765
+TotalMinutes      : 0.0841059
+TotalSeconds      : 5.046354
+TotalMilliseconds : 5046.354
+
+
+1000 puzzles with 8 threads
+Thread 0: 0-124
+Thread 4: 500-624
+Thread 2: 250-374
+Thread 1: 125-249
+Thread 6: 750-874
+Thread 3: 375-499
+Thread 5: 625-749
+Thread 7: 875-999
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 4
+Milliseconds      : 662
+Ticks             : 46620270
+TotalDays         : 5.39586458333333E-05
+TotalHours        : 0.0012950075
+TotalMinutes      : 0.07770045
+TotalSeconds      : 4.662027
+TotalMilliseconds : 4662.027
+
+
+1000 puzzles with 9 threads
+Thread 7: 777-887
+Thread 2: 222-332
+Thread 4: 444-554
+Thread 0: 0-111
+Thread 3: 333-443
+Thread 8: 888-998
+Thread 1: 111-221
+Thread 5: 555-665
+Thread 6: 666-776
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 4
+Milliseconds      : 300
+Ticks             : 43009731
+TotalDays         : 4.977978125E-05
+TotalHours        : 0.00119471475
+TotalMinutes      : 0.071682885
+TotalSeconds      : 4.3009731
+TotalMilliseconds : 4300.9731
+
+
+1000 puzzles with 10 threads
+Thread 5: 500-599
+Thread 6: 600-699
+Thread 1: 100-199
+Thread 4: 400-499
+Thread 2: 200-299
+Thread 0: 0-99
+Thread 8: 800-899
+Thread 3: 300-399
+Thread 9: 900-999
+Thread 7: 700-799
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 4
+Milliseconds      : 34
+Ticks             : 40341619
+TotalDays         : 4.66916886574074E-05
+TotalHours        : 0.00112060052777778
+TotalMinutes      : 0.0672360316666667
+TotalSeconds      : 4.0341619
+TotalMilliseconds : 4034.1619
+
+
+1000 puzzles with 11 threads
+Thread 6: 540-630
+Thread 1: 90-180
+Thread 2: 180-270
+Thread 0: 0-90
+Thread 5: 450-540
+Thread 7: 630-720
+Thread 10: 900-989
+Thread 4: 360-450
+Thread 3: 270-360
+Thread 8: 720-810
+Thread 9: 810-900
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 3
+Milliseconds      : 986
+Ticks             : 39868938
+TotalDays         : 4.61446041666667E-05
+TotalHours        : 0.0011074705
+TotalMinutes      : 0.06644823
+TotalSeconds      : 3.9868938
+TotalMilliseconds : 3986.8938
+
+
+1000 puzzles with 12 threads
+Thread 7: 581-663
+Thread 6: 498-580
+Thread 9: 747-829
+Thread 0: 0-83
+Thread 8: 664-746
+Thread 1: 83-166
+Thread 5: 415-497
+Thread 11: 913-995
+Thread 2: 166-249
+Thread 10: 830-912
+Thread 3: 249-332
+Thread 4: 332-414
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 3
+Milliseconds      : 546
+Ticks             : 35462277
+TotalDays         : 4.10443020833333E-05
+TotalHours        : 0.00098506325
+TotalMinutes      : 0.059103795
+TotalSeconds      : 3.5462277
+TotalMilliseconds : 3546.2277
+
+
+1000 puzzles with 13 threads
+Thread 11: 836-912
+Thread 0: 0-76
+Thread 9: 684-760
+Thread 4: 304-380
+Thread 6: 456-532
+Thread 5: 380-456
+Thread 12: 912-987
+Thread 1: 76-152
+Thread 2: 152-228
+Thread 3: 228-304
+Thread 7: 532-608
+Thread 10: 760-836
+Thread 8: 608-684
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 3
+Milliseconds      : 617
+Ticks             : 36179097
+TotalDays         : 4.18739548611111E-05
+TotalHours        : 0.00100497491666667
+TotalMinutes      : 0.060298495
+TotalSeconds      : 3.6179097
+TotalMilliseconds : 3617.9097
+
+
+1000 puzzles with 14 threads
+Thread 9: 639-709
+Thread 8: 568-638
+Thread 2: 142-213
+Thread 1: 71-142
+Thread 11: 781-851
+Thread 12: 852-922
+Thread 7: 497-567
+Thread 3: 213-284
+Thread 13: 923-993
+Thread 5: 355-426
+Thread 4: 284-355
+Thread 0: 0-71
+Thread 10: 710-780
+Thread 6: 426-496
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 3
+Milliseconds      : 973
+Ticks             : 39732359
+TotalDays         : 4.59865266203704E-05
+TotalHours        : 0.00110367663888889
+TotalMinutes      : 0.0662205983333333
+TotalSeconds      : 3.9732359
+TotalMilliseconds : 3973.2359
+
+
+1000 puzzles with 15 threads
+Thread 7: 462-528
+Thread 5: 330-396
+Thread 11: 726-791
+Thread 6: 396-462
+Thread 12: 792-857
+Thread 4: 264-330
+Thread 8: 528-594
+Thread 0: 0-66
+Thread 3: 198-264
+Thread 2: 132-198
+Thread 14: 924-989
+Thread 1: 66-132
+Thread 10: 660-725
+Thread 13: 858-923
+Thread 9: 594-660
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 3
+Milliseconds      : 693
+Ticks             : 36938251
+TotalDays         : 4.27526053240741E-05
+TotalHours        : 0.00102606252777778
+TotalMinutes      : 0.0615637516666667
+TotalSeconds      : 3.6938251
+TotalMilliseconds : 3693.8251
+
+
+1000 puzzles with 16 threads
+Thread 12: 744-805
+Thread 7: 434-496
+Thread 9: 558-619
+Thread 3: 186-248
+Thread 8: 496-557
+Thread 13: 806-867
+Thread 14: 868-929
+Thread 1: 62-124
+Thread 11: 682-743
+Thread 4: 248-310
+Thread 5: 310-372
+Thread 2: 124-186
+Thread 10: 620-681
+Thread 6: 372-434
+Thread 15: 930-991
+Thread 0: 0-62
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 3
+Milliseconds      : 412
+Ticks             : 34121152
+TotalDays         : 3.94920740740741E-05
+TotalHours        : 0.000947809777777778
+TotalMinutes      : 0.0568685866666667
+TotalSeconds      : 3.4121152
+TotalMilliseconds : 3412.1152
+
+
+
+
+
+QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program even slightly?  Why or why not?
+Adding more threads can improve a program's performance, particularly if the program can efficiently utilize parallelism, such as in compute-intensive tasks. 
+However, there is a point of bottlenecking.
+Beyond this point, adding more threads may not significantly speed up the program and can even slow it down. 
+The reasons for this include the overhead of creating and managing threads, increased context switching, and potential resource contention when too many threads compete for shared resources like memory.
+
+
+
+QUESTION 4: Does adding more threads increase the "system load" (sys), or is it constant regardless of the number of threads?  Why?
+
+The "system load" (or sys time) can increase when more threads are added to a program. 
+This increase in sys time is primarily due to the higher frequency of context switching. 
+When multiple threads are running concurrently, the operating system must perform more context switches to switch between threads, which consumes system resources and time.
+Additionally, if threads contend for shared resources, it can lead to increased sys time due to system calls and resource management. 
+Efficient thread management, including the use of thread pools and minimizing unnecessary context switches, can help mitigate the impact on sys time while adding more threads.
+
+
+
+
+BONUS
+=====
+
+QUESTION 5: Time your thread pool version of WordSearch exactly as you did for the full credit version. Post your timings here.
+
+YOUR Timing:
+
+
+
+
+
+
+
+QUESTION 6: Is a thread pool faster, slower, or roughly equivalent in performance? 
+
+
+
+
+
+
+
+QUESTION 7: Compare your full credit and bonus solution code. Which do you believe is more supportable over a long lifetime of evolving hardware and environments?
+
+
+
+
+
+
+
+EXTREME BONUS
+=============
+
+QUESTION 8: Post your final timings here. (The "race" on Antares will determine the actual winner - this just lets me know you're competing!)
+
+
+
+
+
+
+
